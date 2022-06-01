@@ -41,6 +41,8 @@ Body :
 ```
 {
   "username" : "username",
+  "firstname" : "Test",
+  "lastname" : "Test",
   "email" : "email@email.com",
   "password" : "password"	
 }
