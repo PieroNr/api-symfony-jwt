@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,9 +30,16 @@ class AuthController extends AbstractController
         $user->setLastname($lastname);
         $user->setUsername($username);
         $manager->persist($user);
-        $manager->flush();
-        return $this->json([
-            'user' => $user->getEmail()
-        ]);
+        try {
+            $manager->persist($user);
+            $manager->flush();
+        } catch (UniqueConstraintViolationException $e) {
+            return $this->json([
+                'code' => $e->getCode(),
+                'message' => $user->getEmail() . ' ou ' . $user->getUsername() . ' sont déjà utilisés !'
+            ]);
+        }
+
+        return $this->json($user);
     }
 }
