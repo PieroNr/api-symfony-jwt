@@ -5,6 +5,7 @@ At first run you must :
 - Start docker : `docker-compose up -d`
 - Go to the symfony container : `docker-compose exec symfony bash`
   - Install the vendors : `composer install`
+  - Install the vendors : `symfony console doctrine:database:create`
   - Run the migrations : `symfony console doctrine:migrations:migrate`
   - Run the fixtures : `symfony console doctrine:fixtures:load`
   - Create the keys for the jwt : `symfony console lexik:jwt:generate-keypair`
