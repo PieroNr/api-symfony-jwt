@@ -1,43 +1,38 @@
 # api-symfony-jwt
 
-## First run
-At first run you must :
-- Start docker : `docker-compose up -d`
-- Go to the symfony container : `docker-compose exec symfony bash`
-  - Install the vendors : `composer install`
-  - Install the vendors : `symfony console doctrine:database:create`
-  - Run the migrations : `symfony console doctrine:migrations:migrate`
-  - Run the fixtures : `symfony console doctrine:fixtures:load`
-  - Create the keys for the jwt : `symfony console lexik:jwt:generate-keypair`
+## Installation
 
-## Next run
-You just have to run `docker-compose up -d`
+- `docker-compose up -d`
+- `docker-compose exec symfony bash`
+- `composer install`
+- `symfony console doctrine:database:create`
+- `symfony console doctrine:migrations:migrate`
+- `symfony console doctrine:fixtures:load`
+- `symfony console lexik:jwt:generate-keypair`
 
-## Dev url
-Your application run at `http://localhost:8000`
-Phpmyadmin run at : `http://localhost:8080`
 
-## Api
-You must set the header `Accept : application/json` in all the requests !
-Base url : `http://localhost:8000/api/`
+## Lien
+- Serveur Symfony : `http://localhost:8000`
+- Phpmyadmin : `http://localhost:8080`
+
 
 ### Routes : 
-#### Public
-**Login : `/login_check`**
 
-Method : POST  
+**Connexion : `/login_check`** ['POST']
+ 
 Body : 
 ```
 {
   "username": "admin@admin.com",
-  "password": "password"
+  "password": "admin"
 }
 ```
 Headers : `Content-Type : application/json`  
 
-**Register : `/register`**
 
-Method : POST  
+
+**Inscription : `/register`** ['POST']
+
 Body :
 ```
 {
@@ -51,27 +46,24 @@ Body :
 Headers :
 `Content-Type : application/json`
 
-#### Protected
 
-**List all posts : `/posts`**
 
-Method : GET
+**Listes des posts : `/posts`** ['GET']
 
-**Create a post : `/posts`**   
-
-Method : POST       
+**Créer un post : `/posts`** ['POST']
+ 
 Body :                             
 ```                                
 {
-  "title": "Hello world",
-  "content": "Lorem ipsum sit dolores"
+  "title": "title of post",
+  "content": "content of post"
 }
 ```                                
 Headers :                          
 `Content-Type : application/json`  
 
-**Get a post : `/posts/{id}`**                
+**Voir un post : `/posts/{id}`** ['GET']
 
-Method : GET   
+**Supprimer  un post : `/posts/{id}`** ['DELETE']
 
-**Delete a post : `/posts/{id}`**
+**Liste des users : `/users`** ['GET']
