@@ -38,10 +38,10 @@ class UserRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-    public function findOneByEmail($value): ?User
+    public function findOneByUsername($value): ?User
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.email = :val')
+            ->andWhere('u.username = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

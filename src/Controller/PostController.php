@@ -55,7 +55,7 @@ class PostController extends AbstractController
         $jwt = $tokenManager->decode($tokenStorage->getToken());
         $post = new Post();
         $post->setTitle($request->request->get('title'));
-        $post->setAuthor($userRepository->findOneByEmail($jwt['username']));
+        $post->setAuthor($userRepository->findOneByUsername($jwt['username']));
         $post->setContent($request->request->get('content'));
         $post->setCreationDate(new \DateTime());
 
