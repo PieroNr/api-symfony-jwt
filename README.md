@@ -23,7 +23,7 @@
 Body : 
 ```
 {
-  "username": "admin@admin.com",
+  "username": "AdminBoy",
   "password": "admin"
 }
 ```
