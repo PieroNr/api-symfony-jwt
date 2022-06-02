@@ -25,7 +25,7 @@ class PostController extends AbstractController
      */
     public function index(PostRepository $postRepository): Response
     {
-        $posts = $postRepository->findAll();
+        $posts = $postRepository->findBy(array(), array('creationDate' => 'DESC'));
 
         $data = [];
 
