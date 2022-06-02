@@ -63,7 +63,7 @@ class PostController extends AbstractController
         $entityManager->persist($post);
         $entityManager->flush();
 
-        return $this->json('Created new post successfully with id ' . $post->getId());
+        return $this->json('Post créé avec succès avec l\'id ' . $post->getId());
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends AbstractController
 
         if (!$post) {
 
-            return $this->json('No insult found for id' . $id, 404);
+            return $this->json('Aucun post trouvé avec l\'id ' . $id, 404);
         }
 
         $data =  [
@@ -99,7 +99,7 @@ class PostController extends AbstractController
         $post = $entityManager->getRepository(Post::class)->find($id);
 
         if (!$post) {
-            return $this->json('No post found for id' . $id, 404);
+            return $this->json('Aucun post trouvé avec l\'id ' . $id, 404);
         }
 
         $post->setTitle($request->request->get('title'));
@@ -125,12 +125,12 @@ class PostController extends AbstractController
         $post = $entityManager->getRepository(Post::class)->find($id);
 
         if (!$post) {
-            return $this->json('No post found for id' . $id, 404);
+            return $this->json('Aucun post trouvé avec l\'id ' . $id, 404);
         }
 
         $entityManager->remove($post);
         $entityManager->flush();
 
-        return $this->json('Deleted a post successfully with id ' . $id);
+        return $this->json('Post supprimé avec succès id ' . $id);
     }
 }
