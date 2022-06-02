@@ -119,8 +119,42 @@
     "namshi/jose": {
         "version": "7.2.3"
     },
+    "nelmio/api-doc-bundle": {
+        "version": "4.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "c8e0c38e1a280ab9e37587a8fa32b251d5bc1c94"
+        },
+        "files": [
+            "./config/packages/nelmio_api_doc.yaml",
+            "./config/routes/nelmio_api_doc.yaml"
+        ]
+    },
+    "nelmio/cors-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
+        },
+        "files": [
+            "./config/packages/nelmio_cors.yaml"
+        ]
+    },
     "nikic/php-parser": {
         "version": "v4.14.0"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.3.0"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.6.1"
     },
     "psr/cache": {
         "version": "3.0.0"
@@ -246,6 +280,9 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/options-resolver": {
+        "version": "v6.1.0"
+    },
     "symfony/password-hasher": {
         "version": "v6.1.0"
     },
@@ -360,6 +397,9 @@
     "twig/twig": {
         "version": "v3.4.1"
     },
+    "webmozart/assert": {
+        "version": "1.10.0"
+    },
     "zenstruck/assert": {
         "version": "v1.0.1"
     },
@@ -377,5 +417,8 @@
         "files": [
             "./config/packages/zenstruck_foundry.yaml"
         ]
+    },
+    "zircote/swagger-php": {
+        "version": "4.4.4"
     }
 }
