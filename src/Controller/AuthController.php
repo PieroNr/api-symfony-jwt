@@ -33,6 +33,7 @@ class AuthController extends AbstractController
         try {
             $manager->persist($user);
             $manager->flush();
+            return $this->json('User ' . $user->getUsername() . ' was created !', 200);
         } catch (UniqueConstraintViolationException $e) {
             return $this->json([
                 'code' => $e->getCode(),

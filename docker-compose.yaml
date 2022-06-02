@@ -18,10 +18,11 @@ services:
 
   db:
     image: 'mariadb'
-    env_file: ./.env
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - db-data:/var/lib/mysql
 
 
   phpmyadmin:
@@ -31,3 +32,6 @@ services:
       - '8080:80'
     environment:
       - PMA_ARBITRARY=1
+
+volumes:
+  db-data:
